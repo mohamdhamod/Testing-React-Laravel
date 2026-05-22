@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
+// Hotfix: keep Route facade import explicitly in API routes file.
+
 Route::get('/products', [ProductController::class, 'getProducts']);
 Route::get('/product/{id}', [ProductController::class, 'getProduct']);
 Route::post('/product', [ProductController::class, 'addProduct']);
