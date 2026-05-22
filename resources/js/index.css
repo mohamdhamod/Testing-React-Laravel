@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+    scroll-behavior: smooth;
+}
+
+.logo,
+.bestS {
+    font-family: "Sora", sans-serif;
+}
+
+.icon {
+    width: 20px;
+    height: 100%;
+}
+
+
+#root {
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+}
+
+body {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 25%, #f8fafc 100%);
+    color: #0f172a;
+}
+
+::selection {
+    background: #fbbf24;
+    color: #0f172a;
+}
+
+.slick-dots {
+    bottom: 14px !important;
+}
+
+.slick-dots li button:before {
+    color: #ffffff !important;
+    opacity: 0.55 !important;
+    font-size: 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #fbbf24 !important;
+    opacity: 1 !important;
+}
+
+/* Width */
+.scroll-container::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: 0; /* Thinner width for vertical scrollbar */
+    height: 0.15rem; /* Thinner height for horizontal scrollbar */
+}
+
+/* Track */
+.scroll-container::-webkit-scrollbar-track, body::-webkit-scrollbar {
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+/* Handle */
+.scroll-container::-webkit-scrollbar-thumb , body::-webkit-scrollbar{
+    background: rgb(226, 226, 226);
+    border-radius: 4px; 
+}
+
+/* Handle on hover */
+.scroll-container::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar {
+    background: #777777;
+}

@@ -1,0 +1,33 @@
+
+
+====================================================================
+  PROJECT STRUCTURE (Important folders only)
+====================================================================
+
+React-Laravel/
+├── app/Http/Controllers/     → API endpoints (backend)
+├── app/Models/               → Database models
+├── database/migrations/      → Database tables
+├── resources/js/             → React frontend
+│   ├── components/           → Reusable components
+│   ├── pages/               → Page components
+│   ├── context/             → State management
+│   └── App.jsx              → Main app
+├── public/                   → Images & static files
+├── routes/                   → API and web routes
+│   ├── api.php              → Backend APIs
+│   └── web.php              → Frontend routes
+└── .env                     → Configuration (don't share)
+
+=============================
+
+Install Instructions:
+
+git clone https://github.com/given repo 
+cd Project
+composer install
+copy .env.example .env  and make database and connection.
+php artisan key:generate
+npm install
+npm run build
+php artisan serve
