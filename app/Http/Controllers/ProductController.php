@@ -64,7 +64,12 @@ class ProductController extends Controller
     
     public function searchProducts(Request $request)
     {
-        $query = $request->get('q');
+        $query = trim((string) $request->get('q', ''));
+
+        if ($query === '') {
+            return response()->json([]);
+        }
+
         $products = Product::where('title', 'like', "%{$query}%")
             ->orWhere('brand', 'like', "%{$query}%")
             ->get();
@@ -93,13 +98,24 @@ class ProductController extends Controller
     
     public function listOfProducts($list)
     {
-        switch($list) {
-            case 'new':
-                $products = Product::orderBy('created_at', 'desc')->take(20)->get();
-                break;
-            default:
-                $products = Product::take(20)->get();
+        if ($list === 'new') {
+            $products = Product::orderBy('id', 'desc')
+                ->orderBy('created_at', 'desc')
+                ->take(20)
+                ->get();
+
+            return response()->json($products);
         }
+
+        if (preg_match('/^\d+(,\d+)*$/', $list)) {
+            $ids = array_map('intval', explode(',', $list));
+            $products = Product::whereIn('id', $ids)->get();
+
+            return response()->json($products);
+        }
+
+        $products = Product::take(20)->get();
+
         return response()->json($products);
     }
 }
